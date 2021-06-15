@@ -37,7 +37,7 @@ public final class Knapsack {
         var knapsack = Array(repeating: Array(repeating: 0, count: maxWeight + 1), count: supply.count + 1)
         for i in 0...supply.count - 1{
             for k in 0...maxWeight {
-                if supply[i].weight < k {
+                if supply[i].weight <= k {
                     knapsack[i + 1][k] = max(
                         knapsack[i][k],
                         supply[i].value + knapsack[i][k - supply[i].weight]
